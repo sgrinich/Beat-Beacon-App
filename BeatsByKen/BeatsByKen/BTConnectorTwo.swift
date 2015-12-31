@@ -99,7 +99,7 @@ class BTConnectorTwo: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
     //Get the list of available peripherals
     func getAvailablePeripherals() -> [CBPeripheral]{
-        //print(availablePeripherals)
+        print(availablePeripherals)
         if availablePeripherals.count > 0{
             return availablePeripherals
         }

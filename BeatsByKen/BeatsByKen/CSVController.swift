@@ -9,7 +9,14 @@
 import Foundation
 import CoreData
 
+protocol CSVControllerDelegate {
+    func controller(controller: CSVController, didExport: Bool)
+}
+
 class CSVController: UIViewController,UITableViewDelegate,UITableViewDataSource{
+    
+    
+    var delegate: CSVControllerDelegate! = nil
     
     var trialArray = [Session]()
     var fileName = String()
@@ -47,6 +54,8 @@ class CSVController: UIViewController,UITableViewDelegate,UITableViewDataSource{
    // @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var exportButton: UIButton!
     
+
+    
     override func viewDidLoad() {
         
         fromSessionToCells();
@@ -62,10 +71,18 @@ class CSVController: UIViewController,UITableViewDelegate,UITableViewDataSource{
         self.backButton.layer.cornerRadius = 25;
         self.exportButton.layer.cornerRadius = 25;
      //   self.saveButton.layer.cornerRadius = 25;
+        
+        //back button stuff
+//        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
+//        navigationItem.leftBarButtonItem = backButton
     
        
         
         
+    }
+    
+    func goBack(){
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func fromSessionToCells(){
@@ -116,6 +133,7 @@ class CSVController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     }
     
     
+ 
     @IBAction func backButton(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil);
     }
@@ -151,56 +169,95 @@ class CSVController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     }
     
     @IBAction func exportButton(sender: UIButton) {
-        csv = "Participant #, Session, Trial, Start Time, Stop Time, Heartbeat Count";
-        
-        let date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yy_hh:mm:ssa"
-        var timeStamp = dateFormatter.stringFromDate(date);
-        fileName = trialArray[0].pre1Trial.participantID! + "." + trialArray[0].pre1Trial.session! + "_" + String(timeStamp) + ".csv";
-
-        
-        for var j=0; j<arrayForPopulation.count; j++
-        {
-            csv += "\n" + arrayForPopulation[j].participantID! + "," + arrayForPopulation[j].session! + "," + arrayForPopulation[j].type! + "," + arrayForPopulation[j].startTime! + "," + arrayForPopulation[j].endTime! + "," + arrayForPopulation[j].beatCount!;
-        }
-        
-        let csvData = (csv as NSString).dataUsingEncoding(NSUTF8StringEncoding)
         
         
-        if(dropboxSyncService.isLinked() == false){
-            print("Account is not linked!!!")
-            displayDropboxProblem()
-
-        }
         
-        else{
+        var dropboxConfirm = UIAlertController(title: "Export to Dropbox?", message: "Confirm you would like to export file to linked Dropbox account.", preferredStyle: UIAlertControllerStyle.Alert)
         
-            if let finalData = csvData{
-                dropboxSyncService.saveFile(fileName, data: finalData);
-                displayAddedToDropbox();
-                print("made it here");
+        
+        dropboxConfirm.addAction(UIAlertAction(title: "Confirm", style: .Default, handler: { (action: UIAlertAction!) in
+            self.csv = "Participant #, Session, Trial, Start Time, Stop Time, Heartbeat Count";
+            
+            let date = NSDate()
+            let calendar = NSCalendar.currentCalendar()
+            let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yy_hh:mm:ssa"
+            var timeStamp = dateFormatter.stringFromDate(date);
+            self.fileName = self.trialArray[0].pre1Trial.participantID! + "." + self.trialArray[0].pre1Trial.session! + "_" + String(timeStamp) + ".csv";
+            
+            
+            for var j=0; j<self.arrayForPopulation.count; j++
+            {
+                self.csv += "\n" + self.arrayForPopulation[j].participantID! + "," + self.arrayForPopulation[j].session! + "," + self.arrayForPopulation[j].type! + "," + self.arrayForPopulation[j].startTime! + "," + self.arrayForPopulation[j].endTime! + "," + self.arrayForPopulation[j].beatCount!;
             }
             
-            else{
-                displayDropboxProblem()
-                print("problem with werid swift thing");
+            let csvData = (self.csv as NSString).dataUsingEncoding(NSUTF8StringEncoding)
+            
+            
+            if(self.dropboxSyncService.isLinked() == false){
+                print("Account is not linked!!!")
+           self.displayDropboxProblem()
+                
             }
+                
+            else{
+                
+                if let finalData = csvData{
+                    self.dropboxSyncService.saveFile(self.fileName, data: finalData);
+                    
+                    self.delegate!.controller(self, didExport: true)
+                    
+                    
+                    self.displayAddedToDropbox();
+                    
+                    
+                    
+                    print("made it here");
+                }
+                    
+                else{
+                    self.displayDropboxProblem()
+                    print("problem with werid swift thing");
+                }
+                
+            }
+            
+//            self.dismissViewControllerAnimated(true, completion: nil)
+        }))
         
-        }
+        dropboxConfirm.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+            
+            dropboxConfirm.dismissViewControllerAnimated(true, completion: nil)
+            
+            
+        }))
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        presentViewController(dropboxConfirm, animated: true, completion: nil)
+
+        
+        
 
   
     }
     
     func displayAddedToDropbox(){
-        let alertController = UIAlertController(title: "Nice", message:
-            "Check your Dropbox folder for: "+fileName, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-        self.presentViewController(alertController, animated: true, completion: nil)
+        
+        
+        var addedAlert = UIAlertController(title: "Exported", message: "Successfully saved to your Dropbox as:  "+fileName, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        
+        addedAlert.addAction(UIAlertAction(title: "Okay", style: .Default, handler: { (action: UIAlertAction!) in
+//            addedAlert.dismissViewControllerAnimated(true, completion: nil)
+            
+            
+        }))
+//        
+//        let alertController = UIAlertController(title: "Nice", message:
+//            "Check your Dropbox folder for: "+fileName, preferredStyle: UIAlertControllerStyle.Alert)
+//        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        self.presentViewController(addedAlert, animated: true, completion: nil)
+//        addedAlert.dismissViewControllerAnimated(true, completion: nil)
         
     }
     

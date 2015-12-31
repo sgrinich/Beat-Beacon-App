@@ -679,15 +679,6 @@
                                             <action selector="cancelButton:" destination="VfR-Sn-pqg" eventType="touchUpInside" id="JNz-YR-Gvi"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJ7-E2-kL3">
-                                        <rect key="frame" x="522" y="686" width="238" height="63"/>
-                                        <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                        <state key="normal" title="New Session">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2f9-iL-9gX">
                                         <rect key="frame" x="522" y="759" width="238" height="56"/>
                                         <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -981,7 +972,6 @@
                         <outlet property="exer3" destination="voW-lL-gSl" id="nlu-nV-Qme"/>
                         <outlet property="exer4" destination="kBV-3q-3eF" id="XtN-6E-ALt"/>
                         <outlet property="modelLabel" destination="Adf-tD-wRD" id="e9r-rY-tMf"/>
-                        <outlet property="newSessionButton" destination="HJ7-E2-kL3" id="ilc-ow-1wu"/>
                         <outlet property="participantNumberTextField" destination="mv1-SA-3KH" id="xG1-JO-GGt"/>
                         <outlet property="post1" destination="ubQ-EN-8vv" id="MWU-Ay-lvL"/>
                         <outlet property="post2" destination="uAl-Hi-0fp" id="AbB-ex-ytP"/>
@@ -1033,16 +1023,16 @@
                                             <action selector="exportButton:" destination="3Mq-bi-MjQ" eventType="touchUpInside" id="p4N-BB-jzZ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wq-O0-VrV">
-                                        <rect key="frame" x="38" y="892" width="324" height="101"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                        <state key="normal" title="Run Another Session">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WrF-3c-emd">
+                                        <rect key="frame" x="52" y="893" width="255" height="100"/>
+                                        <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
+                                        <state key="normal" title="Back">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="backButton:" destination="3Mq-bi-MjQ" eventType="touchUpInside" id="lx6-7H-PJc"/>
+                                            <action selector="backButton:" destination="3Mq-bi-MjQ" eventType="touchUpInside" id="P2u-Ff-v5n"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1100,7 +1090,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="backButton" destination="7wq-O0-VrV" id="GBx-Nj-JeQ"/>
+                        <outlet property="backButton" destination="WrF-3c-emd" id="0x0-D1-eoC"/>
                         <outlet property="exportButton" destination="QLX-w6-ZGu" id="t0N-Tj-IKc"/>
                         <outlet property="redBarLeftmostItem" destination="Q6M-Af-UcL" id="PgE-fg-Hh9"/>
                         <outlet property="redBarRightmostItem" destination="QaN-wR-0NN" id="MA2-7d-IDM"/>

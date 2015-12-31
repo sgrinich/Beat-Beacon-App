@@ -28,7 +28,7 @@ import UIKit
 import CoreBluetooth
 import CoreData
 
-class TestSessionViewController: UIViewController, UITextFieldDelegate{
+class TestSessionViewController: UIViewController, CSVControllerDelegate, UITextFieldDelegate{
     
 
     @IBOutlet weak var participantNumberTextField: UITextField!
@@ -39,7 +39,7 @@ class TestSessionViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var endTimeLabel: UILabel!
     @IBOutlet weak var beatCountLabel: UILabel!
     @IBOutlet weak var startTrialButton: UIButton!
-    @IBOutlet weak var newSessionButton: UIButton!
+//    @IBOutlet weak var newSessionButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     
@@ -61,6 +61,8 @@ class TestSessionViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var exer2: TrialButton!
     @IBOutlet weak var exer3: TrialButton!
     @IBOutlet weak var exer4: TrialButton!
+    
+    
     
     
     var started: Bool?
@@ -103,6 +105,11 @@ class TestSessionViewController: UIViewController, UITextFieldDelegate{
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
 
+    
+    func controller(controller: CSVController, didExport: Bool) {
+        session = Session();
+        resetToNewSession();
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,10 +124,10 @@ class TestSessionViewController: UIViewController, UITextFieldDelegate{
         started = false;
         firstTouch = false;
         isTrialRunning = false;
-        newSessionButton.addTarget(self, action: "newSessionAction:", forControlEvents: UIControlEvents.TouchUpInside);
-        startTrialButton.setTitle("Start Trial", forState: UIControlState.Normal);
+//        newSessionButton.addTarget(self, action: "newSessionAction:", forControlEvents: UIControlEvents.TouchUpInside);
+//        startTrialButton.setTitle("Start Trial", forState: UIControlState.Normal);
         startTrialButton.layer.cornerRadius = 15;
-        newSessionButton.layer.cornerRadius = 15;
+//        newSessionButton.layer.cornerRadius = 15;
         cancelButton.layer.cornerRadius = 15;
         
         pre1.layer.cornerRadius = pre1.layer.frame.height / 2;
@@ -634,8 +641,15 @@ class TestSessionViewController: UIViewController, UITextFieldDelegate{
                         session = Session();
                         resetToNewSession();
 
-                        let csvViewController =  self.storyboard?.instantiateViewControllerWithIdentifier("CSVController") as! CSVController
+                        let csvViewController =  self.storyboard!.instantiateViewControllerWithIdentifier("CSVController") as! CSVController;
                         csvViewController.trialArray = testTrialArray;
+                        
+                        csvViewController.delegate = self;
+                        
+//                            let navController = UINavigationController(rootViewController: csvViewController) // Creating a navigation controller with resultController at the root of the navigation stack.
+//                            self.presentViewController(navController, animated: true, completion: nil)
+                        
+                        
                         
     //                    
     //                    let date = NSDate()
@@ -648,7 +662,9 @@ class TestSessionViewController: UIViewController, UITextFieldDelegate{
     //                    
     //                    fileName = testTrialArray[0].pre1Trial.participantID! + "." + testTrialArray[0].pre1Trial.session! + "_" + String(timeStamp) + ".csv";
     //                    
+//                        self.navigationController!.pushViewController(csvViewController, animated: true)
                         
+
                         self.presentViewController(csvViewController, animated: true, completion: nil)
                     }
                  
