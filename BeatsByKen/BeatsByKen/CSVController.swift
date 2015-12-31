@@ -207,6 +207,7 @@ class CSVController: UIViewController,UITableViewDelegate,UITableViewDataSource{
                     self.dropboxSyncService.saveFile(self.fileName, data: finalData);
                     
                     self.delegate!.controller(self, didExport: true)
+                    println("in csvController calling self.delegate!")
                     
                     
                     self.displayAddedToDropbox();

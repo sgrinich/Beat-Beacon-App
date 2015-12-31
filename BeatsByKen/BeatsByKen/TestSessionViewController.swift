@@ -85,7 +85,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
     
     let noTrialColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1)
     
-    var testTrialArray = [Session]()
+//    var testTrialArray = [Session]()
     
     var duration = NSNumber()
     
@@ -107,8 +107,10 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
 
     
     func controller(controller: CSVController, didExport: Bool) {
+        println("controller function in testSessionViewController called")
         session = Session();
         resetToNewSession();
+        println("just called resetTonewSession in controller function")
     }
 
     override func viewDidLoad() {
@@ -173,7 +175,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
         
         else{
             
-            testTrialArray.append(session);
+//            testTrialArray.append(session);
             session = Session();
             resetToNewSession();
             //session.resetAllTrials();
@@ -637,9 +639,12 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
                     
                     
                     else{
+                        
+                        var testTrialArray = [Session]()
                         testTrialArray.append(session);
+
                         session = Session();
-                        resetToNewSession();
+//                        resetToNewSession();
 
                         let csvViewController =  self.storyboard!.instantiateViewControllerWithIdentifier("CSVController") as! CSVController;
                         csvViewController.trialArray = testTrialArray;
@@ -1354,6 +1359,9 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
     }
     
     func resetToNewSession(){
+        println("resetting to a new session")
+//        var testTrialArray = [Session]() // this makes it so we never have more than one instance of each pre, post, exer. Was confused about this earlier. If we want multiple session in the csv
+        // at the end, erase this line
         self.globalTimer.invalidate();
         timerLabel.text = "00:00.00";
         sessionNumberTextField.text = "";
