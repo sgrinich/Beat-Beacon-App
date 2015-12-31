@@ -643,7 +643,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
                         var testTrialArray = [Session]()
                         testTrialArray.append(session);
 
-                        session = Session();
+//                        session = Session();
 //                        resetToNewSession();
 
                         let csvViewController =  self.storyboard!.instantiateViewControllerWithIdentifier("CSVController") as! CSVController;
