@@ -329,7 +329,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
         
         if(BTConnectorTwo.sharedBTInstance.getCurrentPeripheral() == "None"){
            // displayHRMNotConnected();
-            self.modelLabel.text = BTConnectorTwo.sharedBTInstance.getCurrentPeripheral();
+            self.modelLabel.text = "NO HR MONITOR";
             
         }
     }
@@ -354,7 +354,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
             
             setTrialForSession(trial, session: session);
             
-            startTrialButton.setTitle("Start Trial", forState: UIControlState.Normal);
+            startTrialButton.setTitle("Start", forState: UIControlState.Normal);
             started = false;
             trialStatusLabel.text = trialRunning + " is finished.";
             setFinishedTrialGray();
@@ -659,7 +659,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
             trialStatusLabel.text = trialRunning + " canceled.";
             self.startTimeLabel.text = "Canceled";
             self.endTimeLabel.text = "Canceled";
-            startTrialButton.setTitle("Start Trial", forState: UIControlState.Normal);
+            startTrialButton.setTitle("Start", forState: UIControlState.Normal);
             started = false;
             seconds = 0;
             countdownLabel.text = "0";

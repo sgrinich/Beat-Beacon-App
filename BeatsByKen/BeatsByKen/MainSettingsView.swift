@@ -30,7 +30,7 @@ import CoreBluetooth
 class MainSettingsView: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     
-    @IBOutlet weak var trialButton: UIButton!
+//    @IBOutlet weak var trialButton: UIButton!
     @IBOutlet weak var dbButton: UIButton!
     
     
@@ -94,14 +94,14 @@ class MainSettingsView: UIViewController, UITableViewDataSource, UITableViewDele
         super.viewDidLoad()
         
         if(dropboxSyncService.isLinked() == true){
-            dbButton.setTitle("Disconnect from Dropbox", forState: UIControlState.Normal);
+            dbButton.setTitle("Disconnect Dropbox", forState: UIControlState.Normal);
         }
         
  
         
-        dbButton.layer.cornerRadius = 15;
-        trialButton.layer.cornerRadius = 15;
-        DisconnectButton.layer.cornerRadius = 15;
+//        dbButton.layer.cornerRadius = 15;
+//        trialButton.layer.cornerRadius = 15;
+//        DisconnectButton.layer.cornerRadius = 15;
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleDidLinkNotification:", name: "didLinkToDropboxAccountNotification", object: nil)
         
         
@@ -217,7 +217,7 @@ class MainSettingsView: UIViewController, UITableViewDataSource, UITableViewDele
     
     
     func handleDidLinkNotification(notification: NSNotification) {
-        dbButton.setTitle("Disconnect from Dropbox", forState: UIControlState.Normal)
+        dbButton.setTitle("Disconnect Dropbox", forState: UIControlState.Normal)
     }
    
     override func didReceiveMemoryWarning() {

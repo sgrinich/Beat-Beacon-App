@@ -255,7 +255,7 @@ extension TrialSettingsView : UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-            return CGSize(width: 150, height: 150)
+            return CGSize(width: 125, height: 125)
     }
     
     //3
