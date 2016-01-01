@@ -30,6 +30,8 @@ import CoreData
 
 class TestSessionViewController: UIViewController, CSVControllerDelegate, UITextFieldDelegate{
     
+    
+    var count = 10
 
     @IBOutlet weak var participantNumberTextField: UITextField!
     @IBOutlet weak var sessionNumberTextField: UITextField!
@@ -64,6 +66,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
     
     
     
+    @IBOutlet weak var countdownLabel: UILabel!
     
     var started: Bool?
     var firstTouch: Bool?
@@ -75,6 +78,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
     var startTime = NSTimeInterval()
     var globalTimer = NSTimer()
     var trialTimer = NSTimer()
+    var countdownTimer = NSTimer()
     
     var beatDisplayTimer: NSTimer? = nil
     var bpmDisplayTimer: NSTimer? = nil
@@ -107,10 +111,14 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
 
     
     func controller(controller: CSVController, didExport: Bool) {
-        println("controller function in testSessionViewController called")
+//        println("controller function in testSessionViewController called")
         session = Session();
         resetToNewSession();
-        println("just called resetTonewSession in controller function")
+//        println("just called resetTonewSession in controller function")
+        
+        trialStatusLabel.text = "No Trial Running"
+        startTimeLabel.text = "N/A"
+        endTimeLabel.text = "N/A"
     }
 
     override func viewDidLoad() {
@@ -119,8 +127,6 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
         self.participantNumberTextField.delegate = self;
         self.sessionNumberTextField.delegate = self;
 
-        
-    
         self.title = "Trial";
         
         started = false;
@@ -229,10 +235,20 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
                     endTimeLabel.text = "N/A";
 
                     setTimeFromSelected();
+                    countdownLabel.text = toString(trialTime!);
+
                     
                     self.trialTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "trialTimerCount", userInfo: nil, repeats: true);
                     self.globalTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "updateTime", userInfo: nil, repeats: true);
                     self.startTime = NSDate.timeIntervalSinceReferenceDate();
+                    
+                    count = trialTime! - 1
+                    
+                    self.countdownTimer.invalidate()
+                    self.countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updateCowntdown"), userInfo: nil, repeats: true)
+                    
+
+                    
                     firstTouch = true;
                 }
             }
@@ -257,15 +273,43 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
 
                     
                     setTimeFromSelected();
+                    countdownLabel.text = toString(trialTime!);
+
                     
                     self.trialTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "trialTimerCount", userInfo: nil, repeats: true);
                     self.beatDisplayTimer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector:"updateBeatLabel", userInfo: nil, repeats: true)
+                    
+                    count = trialTime! - 1
+                    println("Count: " )
+                    println(count)
+                    
+                    self.countdownTimer.invalidate()
+                    self.countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updateCowntdown"), userInfo: nil, repeats: true)
+                   
+                    
                     startTimeLabel.text = stringFromTimeInterval((NSDate.timeIntervalSinceReferenceDate() - startTime)) as String;
                     started = true;
                 }
             }
             
         }
+    }
+    
+    func updateCowntdown() {
+        if(count > 0)
+        {
+            countdownLabel.text = String(count)
+            count = count - 1
+
+        }
+        
+        else{
+            countdownLabel.text = "0"
+        }
+        
+        
+        
+        
     }
 
 
@@ -352,6 +396,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
                 trialRunning = "Pre-1";
                 setNonGreenColors(trialRunning);
                 pre1.backgroundColor = UIColor.greenColor();
+                
 
             }
         }
@@ -617,6 +662,8 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
             startTrialButton.setTitle("Start Trial", forState: UIControlState.Normal);
             started = false;
             seconds = 0;
+            countdownLabel.text = "0";
+            countdownTimer.invalidate();
         }
         
         else{
