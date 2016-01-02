@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="n5H-58-sJH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ts4-DW-ykg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -63,7 +63,26 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWZ-jL-9hx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="240" y="-342"/>
+            <point key="canvasLocation" x="1432" y="-194"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ZE4-kZ-vY7">
+            <objects>
+                <tabBarController id="Ts4-DW-ykg" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="mzE-4p-usy">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="n5H-58-sJH" kind="relationship" relationship="viewControllers" id="CdX-Hb-FLw"/>
+                        <segue destination="4aE-6t-FMA" kind="relationship" relationship="viewControllers" id="S98-kA-fSe"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aX5-zN-BPo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-457" y="-2079"/>
         </scene>
         <!--Mission Control-->
         <scene sceneID="gyg-QY-o8V">
@@ -86,18 +105,6 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRc-XZ-e3h">
-                                        <rect key="frame" x="21" y="833" width="266" height="170"/>
-                                        <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="44"/>
-                                        <state key="normal" title="Run Trials">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="4aE-6t-FMA" kind="modal" animates="NO" id="i1x-6J-jE3"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Available Heart Rate Monitors" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exp-sY-8y2">
                                         <rect key="frame" x="21" y="179" width="382" height="47"/>
                                         <color key="backgroundColor" red="0.88627451660000001" green="0.094117648900000003" blue="0.21176470820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -131,7 +138,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aal-ss-peD">
-                                        <rect key="frame" x="305" y="908" width="215" height="95"/>
+                                        <rect key="frame" x="21" y="834" width="208" height="128"/>
                                         <color key="backgroundColor" red="0.0" green="0.51433267370000002" blue="0.98823529480000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Connect Dropbox">
@@ -142,7 +149,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ct2-yd-8IN">
-                                        <rect key="frame" x="528" y="908" width="215" height="95"/>
+                                        <rect key="frame" x="246" y="834" width="213" height="127"/>
                                         <color key="backgroundColor" red="0.88627451660000001" green="0.094117648900000003" blue="0.21176470820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -209,6 +216,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings.png" selectedImage="settings.png" id="iYP-9o-HHC">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="settings.png"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Mission Control" id="T9y-b0-lTS"/>
                     <connections>
                         <outlet property="AutoScanSwitch" destination="ru0-bc-wlh" id="sfh-dr-keY"/>
@@ -217,12 +229,11 @@
                         <outlet property="DisconnectButton" destination="Ct2-yd-8IN" id="Y1z-2X-pok"/>
                         <outlet property="dbButton" destination="aal-ss-peD" id="pDO-ye-79m"/>
                         <outlet property="disconnectButton" destination="Ct2-yd-8IN" id="7lM-IG-dGR"/>
-                        <outlet property="runTrialsButton" destination="vRc-XZ-e3h" id="gnJ-aS-mFk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kMH-lJ-wP0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-684" y="-1704"/>
+            <point key="canvasLocation" x="-616" y="-368"/>
         </scene>
         <!--History-->
         <scene sceneID="Row-KC-MqJ">
@@ -351,7 +362,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mqk-ys-dew" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2311" y="-1233"/>
+            <point key="canvasLocation" x="3023" y="-433"/>
         </scene>
         <!--StartNewSessionView-->
         <scene sceneID="uAX-Lp-oaA">
@@ -695,20 +706,8 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.1764705926" green="0.2392156869" blue="0.30196079609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="suM-BY-d3D">
-                                        <rect key="frame" x="253" y="903" width="215" height="100"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                        <state key="normal" title="Cancel">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="cancelButton:" destination="VfR-Sn-pqg" eventType="touchUpInside" id="JNz-YR-Gvi"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2f9-iL-9gX">
-                                        <rect key="frame" x="253" y="786" width="215" height="100"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2f9-iL-9gX">
+                                        <rect key="frame" x="18" y="762" width="215" height="97"/>
                                         <color key="backgroundColor" red="0.0" green="0.51433267372727287" blue="0.98823529480000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="37"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1117,27 +1116,15 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SbS-DP-qZR">
-                                        <rect key="frame" x="23" y="786" width="215" height="100"/>
+                                        <rect key="frame" x="106" y="868" width="276" height="97"/>
                                         <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                        <state key="normal" title="Durations">
+                                        <state key="normal" title="Trial Durations">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <segue destination="d6f-0x-Xq5" kind="push" id="zMi-0x-TQB"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HjH-T5-Y4I">
-                                        <rect key="frame" x="23" y="903" width="215" height="100"/>
-                                        <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                        <state key="normal" title="Settings">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="n5H-58-sJH" kind="modal" animates="NO" id="LDR-zz-t7u"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CONTROL PANEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E6Q-ot-59r">
@@ -1147,8 +1134,8 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2J-le-7Eb">
-                                        <rect key="frame" x="483" y="786" width="265" height="216"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2J-le-7Eb">
+                                        <rect key="frame" x="483" y="763" width="265" height="205"/>
                                         <color key="backgroundColor" red="0.0" green="0.71272399475524484" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1158,6 +1145,18 @@
                                         </state>
                                         <connections>
                                             <action selector="startstopButtonTouched:" destination="VfR-Sn-pqg" eventType="touchUpInside" id="ACI-VL-nk2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="suM-BY-d3D">
+                                        <rect key="frame" x="248" y="762" width="215" height="97"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelButton:" destination="VfR-Sn-pqg" eventType="touchUpInside" id="JNz-YR-Gvi"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1170,7 +1169,6 @@
                     <connections>
                         <outlet property="bpmLabel" destination="jWa-Wl-faK" id="uY8-Ol-aS2"/>
                         <outlet property="cancelButton" destination="suM-BY-d3D" id="Fvh-D0-pjr"/>
-                        <outlet property="connectionButton" destination="HjH-T5-Y4I" id="I9R-jD-Acf"/>
                         <outlet property="countdownLabel" destination="lm3-YS-cJ0" id="SLK-aX-FfM"/>
                         <outlet property="doneButton" destination="2f9-iL-9gX" id="GHx-WS-i7f"/>
                         <outlet property="durationButton" destination="SbS-DP-qZR" id="Amq-ut-lDm"/>
@@ -1198,7 +1196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wCu-ZY-AU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079" y="-1589"/>
+            <point key="canvasLocation" x="1432" y="-1585"/>
         </scene>
         <!--Controller-->
         <scene sceneID="xrm-6m-rvr">
@@ -1307,7 +1305,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9RU-H0-mIG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1331" y="-310"/>
+            <point key="canvasLocation" x="2251" y="-237"/>
         </scene>
         <!--Trial-->
         <scene sceneID="fAd-kp-iaL">
@@ -1326,11 +1324,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y6w-1B-f7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="233" y="-1677"/>
+            <point key="canvasLocation" x="341" y="-1641"/>
         </scene>
     </scenes>
     <resources>
         <image name="heart_icon.png" width="30" height="30"/>
+        <image name="settings.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

@@ -103,11 +103,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BeatsByKen/TestSessionViewController.swift"
-            timestampString = "473390014.078323"
+            timestampString = "473391386.907912"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "988"
-            endingLineNumber = "988"
+            startingLineNumber = "986"
+            endingLineNumber = "986"
             landmarkName = "loadTrialSettings()"
             landmarkType = "5">
          </BreakpointContent>

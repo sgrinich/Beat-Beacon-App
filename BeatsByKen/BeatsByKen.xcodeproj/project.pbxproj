@@ -88,7 +88,7 @@
 		C2CD35D21B0447B60018EECF /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		C2CD35D41B0447C60018EECF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		C2CD35D71B0448B50018EECF /* BeatsByKen-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BeatsByKen-Bridging-Header.h"; sourceTree = "<group>"; };
-		C2D09A5F1AF856760013E615 /* BeatsByKen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeatsByKen.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2D09A5F1AF856760013E615 /* Beat Beacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Beat Beacon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2D09A631AF856760013E615 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2D09A641AF856760013E615 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2D09A691AF856760013E615 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 		C2D09A601AF856760013E615 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C2D09A5F1AF856760013E615 /* BeatsByKen.app */,
+				C2D09A5F1AF856760013E615 /* Beat Beacon.app */,
 				C2D09A741AF856760013E615 /* BeatsByKenTests.xctest */,
 			);
 			name = Products;
@@ -333,7 +333,7 @@
 			);
 			name = BeatsByKen;
 			productName = BeatsByKen;
-			productReference = C2D09A5F1AF856760013E615 /* BeatsByKen.app */;
+			productReference = C2D09A5F1AF856760013E615 /* Beat Beacon.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C2D09A731AF856760013E615 /* BeatsByKenTests */ = {
@@ -591,7 +591,8 @@
 				INFOPLIST_FILE = BeatsByKen/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = BeatsByKen;
+				PRODUCT_NAME = "Beat Beacon";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BeatsByKen/BeatsByKen-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -612,7 +613,8 @@
 				INFOPLIST_FILE = BeatsByKen/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = BeatsByKen;
+				PRODUCT_NAME = "Beat Beacon";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BeatsByKen/BeatsByKen-Bridging-Header.h";
 			};
@@ -632,7 +634,7 @@
 				);
 				INFOPLIST_FILE = BeatsByKenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BeatsByKenTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeatsByKen.app/BeatsByKen";
 			};
 			name = Debug;
@@ -647,7 +649,7 @@
 				);
 				INFOPLIST_FILE = BeatsByKenTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BeatsByKenTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeatsByKen.app/BeatsByKen";
 			};
 			name = Release;

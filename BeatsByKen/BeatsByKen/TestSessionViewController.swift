@@ -45,7 +45,6 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var durationButton: UIButton!
-    @IBOutlet weak var connectionButton: UIButton!
     
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var bpmLabel: UILabel!
@@ -157,7 +156,6 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
         
         doneButton.layer.cornerRadius = 15;
         durationButton.layer.cornerRadius = 15;
-        connectionButton.layer.cornerRadius = 15;
         
         self.beatDisplayTimer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector:"updateBPMLabel", userInfo: nil, repeats: true);
     }

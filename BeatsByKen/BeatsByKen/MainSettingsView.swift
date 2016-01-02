@@ -32,7 +32,7 @@ class MainSettingsView: UIViewController, UITableViewDataSource, UITableViewDele
     
 //    @IBOutlet weak var trialButton: UIButton!
     @IBOutlet weak var dbButton: UIButton!
-    @IBOutlet weak var runTrialsButton: UIButton!
+//    @IBOutlet weak var runTrialsButton: UIButton!
     
     
     
@@ -97,7 +97,7 @@ class MainSettingsView: UIViewController, UITableViewDataSource, UITableViewDele
         super.viewDidLoad()
         
         dbButton.layer.cornerRadius = 15;
-        runTrialsButton.layer.cornerRadius = 15;
+//        runTrialsButton.layer.cornerRadius = 15;
         DisconnectButton.layer.cornerRadius = 15;
         
         if(dropboxSyncService.isLinked() == true){
