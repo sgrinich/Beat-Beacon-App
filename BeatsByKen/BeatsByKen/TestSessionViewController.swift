@@ -44,6 +44,8 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
 //    @IBOutlet weak var newSessionButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var durationButton: UIButton!
+    @IBOutlet weak var connectionButton: UIButton!
     
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var bpmLabel: UILabel!
@@ -71,6 +73,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
     var started: Bool?
     var firstTouch: Bool?
     var isTrialRunning: Bool?
+    var shouldBPMAlert: Bool?
     
     var trialTime: Int?
     var seconds: Int = 0;
@@ -124,6 +127,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.participantNumberTextField.delegate = self;
         self.sessionNumberTextField.delegate = self;
 
@@ -152,6 +156,8 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
         exer4.layer.cornerRadius = exer4.layer.frame.height / 2;
         
         doneButton.layer.cornerRadius = 15;
+        durationButton.layer.cornerRadius = 15;
+        connectionButton.layer.cornerRadius = 15;
         
         self.beatDisplayTimer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector:"updateBPMLabel", userInfo: nil, repeats: true);
     }
@@ -160,6 +166,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
+        self.navigationController?.navigationBarHidden = true
         setTrialTimes();
         self.modelLabel.text = BTConnectorTwo.sharedBTInstance.getCurrentPeripheral();
         
@@ -320,7 +327,13 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
     
     func updateBPMLabel(){
         if(BTConnectorTwo.sharedBTInstance.getBPM() == 0){
-            bpmLabel.text = "Calibrating";
+            bpmLabel.text = "0";
+            
+            if(started == true && shouldBPMAlert == true){
+                bpmZeroAlert()
+                shouldBPMAlert = false
+                
+            }
 
         }
         else{
@@ -396,6 +409,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
                 trialRunning = "Pre-1";
                 setNonGreenColors(trialRunning);
                 pre1.backgroundColor = UIColor.greenColor();
+                shouldBPMAlert = true;
                 
 
             }
@@ -418,6 +432,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
                 trialRunning = "Pre-2";
                 setNonGreenColors(trialRunning);
                 pre2.backgroundColor = UIColor.greenColor();
+                shouldBPMAlert = true;
 
 
             }
@@ -438,6 +453,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
                 trialRunning = "Pre-3";
                 setNonGreenColors(trialRunning);
                 pre3.backgroundColor = UIColor.greenColor();
+                shouldBPMAlert = true;
 
 
             }
@@ -459,6 +475,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
                 trialRunning = "Pre-4";
                 setNonGreenColors(trialRunning);
                 pre4.backgroundColor = UIColor.greenColor();
+                shouldBPMAlert = true;
 
 
             }
@@ -480,6 +497,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
                 trialRunning = "Post-1";
                 setNonGreenColors(trialRunning);
                 post1.backgroundColor = UIColor.greenColor();
+                shouldBPMAlert = true;
 
 
             }
@@ -502,6 +520,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
                 trialRunning = "Post-2";
                 setNonGreenColors(trialRunning);
                 post2.backgroundColor = UIColor.greenColor();
+                shouldBPMAlert = true;
 
 
             }
@@ -525,6 +544,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
                 trialRunning = "Post-3";
                 setNonGreenColors(trialRunning);
                 post3.backgroundColor = UIColor.greenColor();
+                shouldBPMAlert = true;
 
 
             }
@@ -548,6 +568,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
                 trialRunning = "Post-4";
                 setNonGreenColors(trialRunning);
                 post4.backgroundColor = UIColor.greenColor();
+                shouldBPMAlert = true;
 
 
             }
@@ -571,6 +592,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
                 trialRunning = "Exer-1";
                 setNonGreenColors(trialRunning);
                 exer1.backgroundColor = UIColor.greenColor();
+                shouldBPMAlert = true;
 
 
             }
@@ -594,6 +616,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
                 trialRunning = "Exer-2";
                 setNonGreenColors(trialRunning);
                 exer2.backgroundColor = UIColor.greenColor();
+                shouldBPMAlert = true;
 
 
             }
@@ -618,6 +641,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
                 trialRunning = "Exer-3";
                 setNonGreenColors(trialRunning);
                 exer3.backgroundColor = UIColor.greenColor();
+                shouldBPMAlert = true;
 
 
             }
@@ -639,6 +663,7 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
                 trialRunning = "Exer-4";
                 setNonGreenColors(trialRunning);
                 exer4.backgroundColor = UIColor.greenColor();
+                shouldBPMAlert = true;
 
 
             }
@@ -738,6 +763,14 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
     func displayDropboxProblem(){
         let alertController = UIAlertController(title: "Wait", message:
             "Please connect to your dropbox account before going forward"+fileName, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+    }
+    
+    func bpmZeroAlert(){
+        let alertController = UIAlertController(title: "Wait", message:
+            "BPM is detected zero. Check your heart rate monitor. You may want to redo this trial.", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
         self.presentViewController(alertController, animated: true, completion: nil)
         
@@ -1079,11 +1112,14 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
     
     func setRedoTrial(){
         
+        shouldBPMAlert = true;
+        
         if(trialRunning == "Pre-1"){
             pre1.redoTrial = true;
             trialRunning = "Pre-1";
             setNonGreenColors(trialRunning);
             pre1.backgroundColor = UIColor.greenColor();
+            
 
         }
         if(trialRunning == "Pre-2"){

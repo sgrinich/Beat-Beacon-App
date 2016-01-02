@@ -32,6 +32,9 @@ class MainSettingsView: UIViewController, UITableViewDataSource, UITableViewDele
     
 //    @IBOutlet weak var trialButton: UIButton!
     @IBOutlet weak var dbButton: UIButton!
+    @IBOutlet weak var runTrialsButton: UIButton!
+    
+    
     
     
     let dropboxSyncService = (UIApplication.sharedApplication().delegate as! AppDelegate).dropboxSyncService
@@ -92,6 +95,10 @@ class MainSettingsView: UIViewController, UITableViewDataSource, UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dbButton.layer.cornerRadius = 15;
+        runTrialsButton.layer.cornerRadius = 15;
+        DisconnectButton.layer.cornerRadius = 15;
         
         if(dropboxSyncService.isLinked() == true){
             dbButton.setTitle("Disconnect Dropbox", forState: UIControlState.Normal);

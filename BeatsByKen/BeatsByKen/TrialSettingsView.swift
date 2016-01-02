@@ -41,6 +41,8 @@ class TrialSettingsView : UICollectionViewController, SelectDurationVCDelegate, 
     var duration = NSNumber()
     
     
+    
+    
     let defaultColor = UIColor(red: 153/255, green: 153/255, blue: 153/255, alpha: 1)
     let highlightColor = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1)
 
@@ -104,6 +106,11 @@ class TrialSettingsView : UICollectionViewController, SelectDurationVCDelegate, 
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBarHidden = false
+        let darkColor = UIColor(red: 45/255, green: 61/255, blue: 77/255, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = darkColor
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor();
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         loadTrialSettings()
 
     }
@@ -255,7 +262,7 @@ extension TrialSettingsView : UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-            return CGSize(width: 125, height: 125)
+            return CGSize(width: 150, height: 150)
     }
     
     //3
