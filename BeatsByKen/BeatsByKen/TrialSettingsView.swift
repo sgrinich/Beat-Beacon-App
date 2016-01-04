@@ -272,6 +272,11 @@ extension TrialSettingsView : UICollectionViewDelegateFlowLayout {
             return sectionInsets
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 80;
+    }
+    
+    
     
 }
 

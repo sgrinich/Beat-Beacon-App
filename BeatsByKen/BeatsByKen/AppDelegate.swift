@@ -33,6 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let barColor = UIColor(red: 34.0/255.0, green: 47.0/255.0, blue: 59.0/255.0, alpha: 1.0)
+        UITabBar.appearance().barTintColor = barColor;
+        UITabBar.appearance().translucent = false;
         dropboxSyncService.setup()
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         

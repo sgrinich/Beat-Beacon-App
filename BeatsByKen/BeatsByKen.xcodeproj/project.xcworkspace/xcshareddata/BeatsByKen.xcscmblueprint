@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9AA86E2B5E6D82B5FFE2D9376DCC4D61D56E6ECA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "2F683E2E3C3011ECD8C3BB52A065E03B87A9128F" : 0,
+    "9AA86E2B5E6D82B5FFE2D9376DCC4D61D56E6ECA" : 0,
+    "96E37D88224941A3984802BE289D8FE65093E02B" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8C3B369C-F5BF-4057-9038-8300E1FE5266",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "2F683E2E3C3011ECD8C3BB52A065E03B87A9128F" : "Beats%20By%20Ken%20-%20Ondich%20Course",
+    "9AA86E2B5E6D82B5FFE2D9376DCC4D61D56E6ECA" : "Beats%20By%20Ken%20",
+    "96E37D88224941A3984802BE289D8FE65093E02B" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "BeatsByKen",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "BeatsByKen\/BeatsByKen.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/shankl\/beatsbyken.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2F683E2E3C3011ECD8C3BB52A065E03B87A9128F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sgrinich\/NSW-App.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "96E37D88224941A3984802BE289D8FE65093E02B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sgrinich\/BeatsByKenApp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9AA86E2B5E6D82B5FFE2D9376DCC4D61D56E6ECA"
+    }
+  ]
+}

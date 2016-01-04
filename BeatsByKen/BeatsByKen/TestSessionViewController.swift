@@ -676,23 +676,49 @@ class TestSessionViewController: UIViewController, CSVControllerDelegate, UIText
     
     @IBAction func cancelButton(sender: UIButton) {
         
-        if(started == true){
-            
-            trialTimer.invalidate();
-            trialStatusLabel.text = trialRunning + " canceled.";
-            self.startTimeLabel.text = "Canceled";
-            self.endTimeLabel.text = "Canceled";
-            startTrialButton.setTitle("Start", forState: UIControlState.Normal);
-            started = false;
-            seconds = 0;
-            countdownLabel.text = "0";
-            countdownTimer.invalidate();
-        }
         
-        else{
-            displayNoNeedToCancel();
+        
+        
+        let cancelAlertController = UIAlertController(title: "Cancel?", message:
+            "Are you sure you would like to cancel this trial?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        cancelAlertController.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action: UIAlertAction!) in
+
+            if(self.started == true){
+                
+                self.trialTimer.invalidate();
+                self.trialStatusLabel.text = self.trialRunning + " canceled.";
+                self.startTimeLabel.text = "Canceled";
+                self.endTimeLabel.text = "Canceled";
+                self.startTrialButton.setTitle("Start", forState: UIControlState.Normal);
+                self.started = false;
+                self.seconds = 0;
+                self.countdownLabel.text = "0";
+                self.countdownTimer.invalidate();
+            }
             
-        }
+            else{
+                self.displayNoNeedToCancel();
+                
+            }
+            
+            
+        }))
+        
+        cancelAlertController.addAction(UIAlertAction(title: "No", style: .Default, handler: { (action: UIAlertAction!) in
+            
+            
+            
+            
+            
+        }))
+        
+        
+        self.presentViewController(cancelAlertController, animated: true, completion: nil)
+
+    
+        
+        
     }
     
     @IBAction func doneButton(sender: UIButton) {
