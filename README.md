@@ -12,5 +12,7 @@ a) Track the number of heartbeats that participants experience across fixed time
 
 b) Export the resulting data in the form of a .csv spreadsheet to Dropbox. The heart rate monitors send data via Bluetooth. Importantly, the app will be able to "lock in" to a particular heart rate monitor rather than grab data from the strongest signal it detects.
 
+Demo Video: https://www.youtube.com/watch?v=kxYDLbysfPM
+
 
 
