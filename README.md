@@ -4,7 +4,6 @@ Client: Ken Abrams
 
 [Featured on ScienceTrends.com](http://www.sciencetrends.com/might-accurate-heartbeat-perception-increase-the-risk-for-alcoholism/)
 
--
 This app was used to track the heart rate of participants in a psychology research study conducted by Professor Ken Abrams and his students at Carleton College.
 
 Goals while developing: 
